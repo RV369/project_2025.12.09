@@ -7,18 +7,18 @@ from tabulate import tabulate
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Generate performance report from employee CSV files.',
+        description='Создаание отчета о производительности сотрудников',
     )
     parser.add_argument(
         '--files',
         nargs='+',
         required=True,
-        help='List of CSV files to process',
+        help='Список CSV-файлов для обработки',
     )
     parser.add_argument(
         '--report',
         required=True,
-        help='Name of the report (for display purposes)',
+        help='Название отчета (для целей отображения)',
     )
     args = parser.parse_args()
     # Словарь для накопления данных: position -> список performance
@@ -41,7 +41,8 @@ def main():
             )
         except ValueError as e:
             print(
-                f'Warning: Invalid performance value in file {filename}: {e}. '
+                f'Warning: Invalid performance value in '
+                f'file {filename}: {e}. '
                 f'Skipping row(s).',
             )
     # Вычисление средней эффективности по каждой позиции
